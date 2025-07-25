@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
-import initialStyles from '../styles/initial.styles';
+import { View, Text, Image } from 'react-native';
+import initialStyles from '../../styles/initial.styles';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/types';
 
@@ -19,7 +19,14 @@ export function SplashScreen(props: SplashScreenProps) {
 
   return (
     <View style={initialStyles.container}>
-      <Text style={initialStyles.title}>¿Qué me pongo?</Text>
+      <Image
+        style={initialStyles.logo}
+        source={require('../../assets/images/quemepongo-fondo-blanco.jpg')}
+       />
+      <Text>Iniciando tu experiencia con el estilo </Text>
+      <Text>¿Qué me pongo?</Text>
+      <Text></Text>
+      <Text>Por favor, espere ...</Text>
     </View>
   );
 }

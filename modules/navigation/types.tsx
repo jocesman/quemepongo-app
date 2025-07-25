@@ -1,6 +1,7 @@
 
 
 export type RootStackParamList = {
-  Splash: undefined; // no recibe params
+  Splash: undefined; 
   Auth: undefined;
+  RegisterScreen: undefined; 
 };
