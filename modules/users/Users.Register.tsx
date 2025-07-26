@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  Image
+  Image,
+  Alert
 } from 'react-native';
 import registerStyles from '../../styles/register.style'; 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -74,11 +75,35 @@ const handlePasswordChange = (text: string) => {
   !errors.phone &&
   !errors.password;
 
-  const handleRegister = () => {
-    // Aquí va la lógica para registrar usuario (API, local storage, etc.)
-    console.log('Registrando usuario', { name, email, phone, password });
-    // Luego puedes navegar a otra pantalla...
-  };
+  const handleRegister = async () => {
+  if (!isFormValid) return;
+
+  try {
+    // const response = await fetch(`${process.env.API_URL}/user`, {
+    const response = await fetch('http://192.168.0.7:3000/user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone, password }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Error en registro:', errorData);
+      Alert.alert('Error al registrar', 'El servidor no responde, inténtalo de nuevo.');
+    }
+
+    const data = await response.json();
+    console.log('Datos de registro:', data);
+
+    // Navegar a Auth (o pantalla principal)
+    navigation.navigate('Auth');
+  } catch (error) {
+    console.error('Error al registrar:', error);
+    Alert.alert('Error al registrar', 'El servidor no responde, inténtalo de nuevo.');
+  }
+};
+
+
 
   return (
     <KeyboardAvoidingView
