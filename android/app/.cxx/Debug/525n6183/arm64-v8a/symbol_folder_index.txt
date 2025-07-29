@@ -1,0 +1,1 @@
+C:\miProyectoReactNative\queMePongo\frontend\android\app\build\intermediates\cxx\Debug\525n6183\obj\arm64-v8a

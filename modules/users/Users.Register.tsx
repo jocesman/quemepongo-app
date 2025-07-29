@@ -1,6 +1,6 @@
+//RegisterScreen.tsx
 import React, { useState } from 'react';
 import {
-  View,
   Text,
   TextInput,
   TouchableOpacity,
@@ -12,6 +12,7 @@ import {
 import registerStyles from '../../styles/register.style'; 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/types';
+import { API_URL } from '@env'; // Asegúrate de que .env.local esté configurado correctamente
 
 type RegistScreenProps = NativeStackScreenProps<RootStackParamList, 'RegisterScreen'>;
 
@@ -79,8 +80,7 @@ const handlePasswordChange = (text: string) => {
   if (!isFormValid) return;
 
   try {
-    // const response = await fetch(`${process.env.API_URL}/user`, {
-    const response = await fetch('http://192.168.0.7:3000/user', {
+    const response = await fetch(`${API_URL}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, phone, password }),

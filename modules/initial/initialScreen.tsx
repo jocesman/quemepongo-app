@@ -1,3 +1,4 @@
+//initialScreen.tsx
 import React, { useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import initialStyles from '../../styles/initial.styles';
