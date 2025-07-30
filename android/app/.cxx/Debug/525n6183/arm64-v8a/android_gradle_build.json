@@ -1,5 +1,8 @@
 {
   "buildFiles": [
+    "C:\\miProyectoReactNative\\queMePongo\\frontend\\node_modules\\@react-native-async-storage\\async-storage\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
+    "C:\\miProyectoReactNative\\queMePongo\\frontend\\node_modules\\@react-native-picker\\picker\\android\\src\\main\\jni\\CMakeLists.txt",
+    "C:\\miProyectoReactNative\\queMePongo\\frontend\\node_modules\\react-native-image-picker\\android\\build\\generated\\source\\codegen\\jni\\CMakeLists.txt",
     "C:\\miProyectoReactNative\\queMePongo\\frontend\\node_modules\\react-native-safe-area-context\\android\\src\\main\\jni\\CMakeLists.txt",
     "C:\\miProyectoReactNative\\queMePongo\\frontend\\node_modules\\react-native-screens\\android\\src\\main\\jni\\CMakeLists.txt",
     "C:\\miProyectoReactNative\\queMePongo\\frontend\\node_modules\\react-native\\ReactAndroid\\cmake-utils\\default-app-setup\\CMakeLists.txt"
@@ -25,11 +28,33 @@
       "artifactName": "appmodules",
       "output": "C:\\miProyectoReactNative\\queMePongo\\frontend\\android\\app\\build\\intermediates\\cxx\\Debug\\525n6183\\obj\\arm64-v8a\\libappmodules.so",
       "runtimeFiles": [
+        "C:\\miProyectoReactNative\\queMePongo\\frontend\\android\\app\\build\\intermediates\\cxx\\Debug\\525n6183\\obj\\arm64-v8a\\libreact_codegen_rnpicker.so",
         "C:\\miProyectoReactNative\\queMePongo\\frontend\\android\\app\\build\\intermediates\\cxx\\Debug\\525n6183\\obj\\arm64-v8a\\libreact_codegen_safeareacontext.so",
         "C:\\miProyectoReactNative\\queMePongo\\frontend\\android\\app\\build\\intermediates\\cxx\\Debug\\525n6183\\obj\\arm64-v8a\\libreact_codegen_rnscreens.so",
         "C:\\Users\\USUARIO\\.gradle\\caches\\8.14.1\\transforms\\51dbd9ae21c085b2cb843db84b5d6696\\transformed\\fbjni-0.7.0\\prefab\\modules\\fbjni\\libs\\android.arm64-v8a\\libfbjni.so",
         "C:\\Users\\USUARIO\\.gradle\\caches\\8.14.1\\transforms\\5d0a6fceadea979a29a63bd98787fde9\\transformed\\react-android-0.80.2-debug\\prefab\\modules\\jsi\\libs\\android.arm64-v8a\\libjsi.so",
         "C:\\Users\\USUARIO\\.gradle\\caches\\8.14.1\\transforms\\5d0a6fceadea979a29a63bd98787fde9\\transformed\\react-android-0.80.2-debug\\prefab\\modules\\reactnative\\libs\\android.arm64-v8a\\libreactnative.so"
+      ]
+    },
+    "react_codegen_RNImagePickerSpec::@f66ee9a2efecfb28bee4": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "react_codegen_RNImagePickerSpec"
+    },
+    "react_codegen_rnasyncstorage::@1596841e19ec5b9eeffe": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "react_codegen_rnasyncstorage"
+    },
+    "react_codegen_rnpicker::@e8bb2e9e833f47d0d516": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "react_codegen_rnpicker",
+      "output": "C:\\miProyectoReactNative\\queMePongo\\frontend\\android\\app\\build\\intermediates\\cxx\\Debug\\525n6183\\obj\\arm64-v8a\\libreact_codegen_rnpicker.so",
+      "runtimeFiles": [
+        "C:\\Users\\USUARIO\\.gradle\\caches\\8.14.1\\transforms\\5d0a6fceadea979a29a63bd98787fde9\\transformed\\react-android-0.80.2-debug\\prefab\\modules\\reactnative\\libs\\android.arm64-v8a\\libreactnative.so",
+        "C:\\Users\\USUARIO\\.gradle\\caches\\8.14.1\\transforms\\5d0a6fceadea979a29a63bd98787fde9\\transformed\\react-android-0.80.2-debug\\prefab\\modules\\jsi\\libs\\android.arm64-v8a\\libjsi.so",
+        "C:\\Users\\USUARIO\\.gradle\\caches\\8.14.1\\transforms\\51dbd9ae21c085b2cb843db84b5d6696\\transformed\\fbjni-0.7.0\\prefab\\modules\\fbjni\\libs\\android.arm64-v8a\\libfbjni.so"
       ]
     },
     "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {

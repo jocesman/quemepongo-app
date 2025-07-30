@@ -44,6 +44,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("C:/miProyectoReactNative/queMePongo/frontend/android/app/.cxx/Debug/525n6183/x86_64/rnasyncstorage_autolinked_build/cmake_install.cmake")
+  include("C:/miProyectoReactNative/queMePongo/frontend/android/app/.cxx/Debug/525n6183/x86_64/rnpicker_autolinked_build/cmake_install.cmake")
+  include("C:/miProyectoReactNative/queMePongo/frontend/android/app/.cxx/Debug/525n6183/x86_64/RNImagePickerSpec_autolinked_build/cmake_install.cmake")
   include("C:/miProyectoReactNative/queMePongo/frontend/android/app/.cxx/Debug/525n6183/x86_64/safeareacontext_autolinked_build/cmake_install.cmake")
   include("C:/miProyectoReactNative/queMePongo/frontend/android/app/.cxx/Debug/525n6183/x86_64/rnscreens_autolinked_build/cmake_install.cmake")
 

@@ -1,3 +1,4 @@
+//initial.styles.tsx
 import { Dimensions, StyleSheet } from "react-native";
 
 const initialStyles = StyleSheet.create({

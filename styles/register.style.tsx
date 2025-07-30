@@ -1,3 +1,4 @@
+//register.style.tsx
 import { StyleSheet, Dimensions } from 'react-native';
 
 const registerStyles = StyleSheet.create({
