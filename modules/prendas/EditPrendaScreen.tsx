@@ -1,4 +1,4 @@
-    // EditPrendaScreen.tsx
+// EditPrendaScreen.tsx
 import React, { useState } from 'react';
 import {
   View,

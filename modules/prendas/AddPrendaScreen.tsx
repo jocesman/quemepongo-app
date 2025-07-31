@@ -1,3 +1,4 @@
+//addPrendaScreen.tsx
 import React, { useState } from 'react';
 import {
   View, Text, TextInput, Image, TouchableOpacity, Alert, Platform, ScrollView
