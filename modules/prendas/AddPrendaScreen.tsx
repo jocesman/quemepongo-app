@@ -48,7 +48,7 @@ export function AddPrendaScreen({ navigation }: Props) {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nombre, tipo, abrigo }),
+        body: JSON.stringify({ nombre, tipo, abrigo, clima }),
       });
 
       const prendaData = await prendaRes.json();
@@ -75,16 +75,22 @@ export function AddPrendaScreen({ navigation }: Props) {
       });
 
       if (!imgRes.ok) {
-        throw new Error('Error subiendo imagen');
+        const errorData = await imgRes.json();
+        const mensaje = errorData.message || 'Error subiendo imagen';
+        throw new Error(mensaje);
       }
+
 
       Alert.alert('Éxito', 'Prenda registrada correctamente');
       navigation.goBack();
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error al guardar prenda:', error);
-      Alert.alert('Error', 'No se pudo guardar la prenda');
+
+      const mensajeError = error?.message || 'Ocurrió un error inesperado al guardar la prenda';
+      Alert.alert('Error al guardar', mensajeError.toString());
     }
+
   };
 
   return (

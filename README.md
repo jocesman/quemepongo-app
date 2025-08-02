@@ -1,97 +1,165 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# 📱 ¿Qué Me Pongo? – App Móvil (Frontend)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+**¿Qué Me Pongo?** es una aplicación móvil desarrollada con **React Native** que permite a los usuarios gestionar su ropa, subir imágenes, y generar outfits automáticamente según el clima.  
+Con una interfaz simple e intuitiva, los usuarios pueden registrar prendas, visualizar combinaciones sugeridas y acceder al historial de outfits generados.
 
-## Step 1: Start Metro
+> 🔗 Repositorio del Backend (NestJS): [https://github.com/jocesman/que-me-pongo](https://github.com/jocesman/que-me-pongo)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🚀 Tecnologías utilizadas
 
-```sh
-# Using npm
-npm start
+- **React Native** (CLI)
+- **TypeScript**
+- **React Navigation**
+- **AsyncStorage**
+- **Cloudinary** (para imágenes)
+- **@env** (para variables de entorno)
+- **Native Stack Navigator**
+- **react-native-image-picker**
+- **@react-native-picker/picker**
 
-# OR using Yarn
-yarn start
+---
+
+## 📲 Funcionalidades principales
+
+- ✍️ Registro e inicio de sesión con validación
+- 📤 Subida de imágenes desde la galería
+- 🧥 Agregar, editar y eliminar prendas
+- 🎲 Generación de outfits según el clima (frío, calor, templado, lluvia)
+- 🖼 Historial de outfits generados
+- 🔐 Autenticación persistente con `AsyncStorage`
+- 🌤 Selector de clima personalizado
+
+---
+
+## ⚙️ Requisitos previos
+
+- Node.js >= 18
+- React Native CLI
+- Android Studio y/o Xcode configurado
+- Emulador o dispositivo real conectado
+
+---
+
+## 📦 Instalación
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/jocesman/que-me-pongo.git
+cd que-me-pongo/frontend
 ```
 
-## Step 2: Build and run your app
+2. Instala las dependencias:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npm install
 ```
 
-### iOS
+3. Crea un archivo `.env` en la raíz del frontend con la siguiente variable:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```env
+API_URL=http://<TU_IP_LOCAL>:3000
 ```
 
-Then, and every time you update your native dependencies, run:
+> ℹ️ Usa tu IP local para conectarte al backend desde el emulador o dispositivo (ej. `http://192.168.1.100:3000`).
 
-```sh
-bundle exec pod install
+4. Limpia el caché de metro bundler:
+
+```bash
+npx react-native start --reset-cache
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+## ▶️ Ejecución
 
-# OR using Yarn
-yarn ios
+### En Android
+
+```bash
+npx react-native run-android
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### En iOS (Mac + Xcode)
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+npx react-native run-ios
+```
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+## 🧭 Estructura de navegación
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+```
+screens/
+├── SplashScreen.tsx         // Verifica sesión activa
+├── AuthScreen.tsx           // Login con validación
+├── RegisterScreen.tsx       // Registro de usuario
+├── MainScreen.tsx           // Generador de outfit e historial
+├── AddPrendaScreen.tsx      // Agregar prenda + imagen
+├── EditPrendaScreen.tsx     // Editar nombre/tipo/abrigo
+└── ManagePrendasScreen.tsx  // Lista para editar y eliminar
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+---
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## 🌦 Generación de outfits inteligentes
 
-## Congratulations! :tada:
+En la pantalla principal, el usuario selecciona el clima y la app hace una solicitud a:
 
-You've successfully run and modified your React Native App. :partying_face:
+```http
+POST /outfit/generate
+```
 
-### Now what?
+La respuesta contiene un outfit generado según las reglas del backend.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+---
 
-# Troubleshooting
+## 🛡️ Manejo de sesión
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+La sesión se guarda en `AsyncStorage` y se verifica en cada arranque de la app desde `SplashScreen.tsx`.  
+El token se envía en el header `Authorization` en cada solicitud protegida.
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
+## 🖼 Subida de imágenes
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Las imágenes seleccionadas desde la galería se suben a Cloudinary a través del backend.  
+Soporta formatos `.jpg`, `.png` y tamaños de hasta 5MB.
+
+---
+
+## 🐞 Depuración
+
+Para ver los logs:
+
+```bash
+npx react-native log-android
+```
+
+Si usas un emulador y tienes problemas de conexión:
+
+- Asegúrate de usar tu IP local (no `localhost`).
+- Permite tráfico de red en el backend (`CORS` en `.env` con `ALLOWED_ORIGINS`).
+
+---
+
+## 📌 Notas adicionales
+
+- El clima **no se guarda** en la prenda, solo se usa como parámetro para generar outfits.
+- Puedes reiniciar sesión eliminando el token manualmente desde AsyncStorage o cerrando sesión desde la app.
+
+---
+
+## ✍️ Autor
+
+**José Céspedes** – [@jocesman](https://github.com/jocesman)  
+Frontend desarrollado como complemento del backend NestJS.
+
+---
+
+## 📃 Licencia
+
+Este proyecto está bajo la Licencia MIT.
